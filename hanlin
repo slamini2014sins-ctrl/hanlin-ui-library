@@ -1,0 +1,25 @@
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+
+local LocalPlayer = Players.LocalPlayer
+local Hanlin = {}
+
+function Hanlin:CreateWindow(titleText)
+	local playerGui = LocalPlayer:WaitForChild("PlayerGui")
+	local oldUI = playerGui:FindFirstChild("HanlinUI_Container")
+	if oldUI then oldUI:Destroy() end
+
+	local ScreenGui = Instance.new("ScreenGui")
+	ScreenGui.Name = "HanlinUI_Container"
+	ScreenGui.ResetOnSpawn = false
+	ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	ScreenGui.DisplayOrder = 999999
+	ScreenGui.Parent = playerGui
+
+	local AmbientGlow = Instance.new("Frame")
+	AmbientGlow.Name = "AmbientGlow"
+	AmbientGlow.Size = UDim2.new(0, 240, 0, 360)
+	AmbientGlow.Position = UDim2.new(0.5, -120, 0.4, -180)
+	AmbientGlow.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
+	AmbientG
